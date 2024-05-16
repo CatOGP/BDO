@@ -69,7 +69,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 				for (int z = 0; z < craftNames.size(); z++)
 				{
 					file << "- " << craftNames[z] << " :" << endl;
-					getCraft(craftNames[z], itemList, price, amount);
+					Crafts(craftNames[z], itemList, price, amount, prices);
 					for (int j = 0; j < itemList.size(); j++)
 					{
 						file << itemList[j] << " " << price[j] << " " << amount[j] << endl;
@@ -89,7 +89,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 				for (int z = 0; z < craftNames.size(); z++)
 				{
 					file << "- " << craftNames[z] << " :" << endl;
-					getCraftAux(craftNames[z], itemList, price, amount);
+					AuxiliarCrafter(craftNames[z], itemList, price, amount, prices);
 					for (int j = 0; j < itemList.size(); j++)
 					{
 						file << itemList[j] << " " << price[j] << " " << amount[j] << endl;
@@ -117,7 +117,32 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 	}
 }
 
-void getCraft(const string& itemName, vector<string>& itemList, vector<int>& price, vector<int>& amount)
+int searchItemPrice(const string& itemName, vector<int>& prices)
+{
+	bool found = false;
+	int i = 0, price = 0;;
+	string auxS;
+	ifstream file;
+	file.open("prices.txt");
+	if (file.is_open())
+	{
+		while (!found && i < (prices.size() * 2))
+		{
+			file >> auxS;
+			if (itemName == auxS)
+			{
+				file >> price;
+				found = true;
+			}
+			else
+				i++;
+		}
+	}
+	file.close();
+	return price;
+}
+
+void Crafts(const string& itemName, vector<string>& itemList, vector<int>& price, vector<int>& amount, vector<int>& prices)
 {
 	itemList.clear();
 	price.clear();
@@ -145,21 +170,25 @@ void getCraft(const string& itemName, vector<string>& itemList, vector<int>& pri
 		{
 			while (auxI != "-" && !file.eof())
 			{
-				file >> auxI >> auxP >> auxA;
+				file >> auxI >> auxA;
 				if (auxI != "-")
 				{
-					itemList.push_back(auxI);
-					price.push_back(auxP);
-					amount.push_back(auxA);
+					if (!count(itemList.begin(), itemList.end(), auxI))
+					{
+						itemList.push_back(auxI);
+						amount.push_back(auxA);
+					}
 					i++;
 				}
 			}
 		}
 	}
 	file.close();
+	for (int i = 0; i < itemList.size(); i++)
+		price.push_back(searchItemPrice(itemList[i], prices));
 }
 
-void getCraftAux(const string& itemName, vector<string>& itemList, vector<int>& price, vector<int>& amount)
+void AuxiliarCrafter(const string& itemName, vector<string>& itemList, vector<int>& price, vector<int>& amount, vector<int>& prices)
 {
 	itemList.clear();
 	price.clear();
@@ -187,18 +216,22 @@ void getCraftAux(const string& itemName, vector<string>& itemList, vector<int>& 
 		{
 			while (auxI != "-" && !file.eof())
 			{
-				file >> auxI >> auxP >> auxA;
+				file >> auxI >> auxA;
 				if (auxI != "-")
 				{
-					itemList.push_back(auxI);
-					price.push_back(auxP);
-					amount.push_back(auxA);
+					if (!count(itemList.begin(), itemList.end(), auxI))
+					{
+						itemList.push_back(auxI);
+						amount.push_back(auxA);
+					}
 					i++;
 				}
 			}
 		}
 	}
 	file.close();
+	for (int i = 0; i < itemList.size(); i++)
+		price.push_back(searchItemPrice(itemList[i], prices));
 }
 
 void getItemList(vector<string>& craftName)
@@ -225,10 +258,10 @@ string numToString(int n)
 {
 	stringstream ss;
 	ss << n;
-	std::string numStr = ss.str();
-	for (int i = numStr.size() - 3; i > 0; i -= 3) {
+	string numStr = ss.str();
+	bool cicle = false;
+	for (int i = numStr.size() - 3; i > 0; i -= 3)
 		numStr.insert(i, ",");
-	}
 	return numStr;
 }
 
@@ -279,7 +312,7 @@ void profit(vector<string>& craftName, vector<string>& itemList, vector<int>& pr
 		index = stringInArray(craftName[i], nameList);
 		if (index != -1)
 		{
-			getCraft(craftName[i], itemList, price, amount);
+			Crafts(craftName[i], itemList, price, amount, prices);
 			rawPrice = prices[index];
 			for (int j = 0; j < itemList.size(); j++)
 				total += price[j] * amount[j];
@@ -297,9 +330,52 @@ void profit(vector<string>& craftName, vector<string>& itemList, vector<int>& pr
 	{
 
 		cout << endl << " - " << craftName[i] << " --> " << numToString(profit[i]) << endl;
-		for (int k = 0; k < itemList.size() - 1; k++)
+	}
+}
+
+void showMaterials(const string& itemName, vector<string> itemList, vector<int> amount)
+{
+	itemList.clear();
+	amount.clear();
+	string auxN = "", aux = "", auxI = "";
+	bool found = false;
+	int i = 0, auxP = 0, auxA = 0;
+	ifstream file;
+	file.open("crafts.txt");
+	if (file.is_open())
+	{
+		while (!found && !file.eof())
 		{
-			cout << "	--> " << itemList[k] << " " << amount[k] << "x" << endl;
+			file >> auxN;
+			if (auxN == itemName)
+			{
+				file >> aux;
+				if (aux == ":")
+				{
+					found = true;
+				}
+			}
+		}
+		if (found)
+		{
+			while (auxI != "-" && !file.eof())
+			{
+				file >> auxI >> auxA;
+				if (auxI != "-")
+				{
+					if (!count(itemList.begin(), itemList.end(), auxI))
+					{
+						itemList.push_back(auxI);
+						amount.push_back(auxA);
+					}
+					i++;
+				}
+			}
+		}
+		cout << endl << "Materials required to craft " << itemName << ":" << endl;
+		for (int i = 0; i < itemList.size(); i++)
+		{
+			cout << endl << " --> " << itemList[i] << " " << amount[i] << "x";
 		}
 	}
 }
