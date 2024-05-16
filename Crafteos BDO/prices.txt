@@ -30,7 +30,7 @@ MagicCrystalOfInfinityBackAttack 72000
 MagicCrystalOfInfinityCriticalHit 2580000
 MagicCrystalOfInfinityExperience 5000000
 MagicCrystalOfInfinitySkill 400000
-MelodyOfTheStars 1000000000
+MelodyOfTheStars 1724000
 NertRing 33100000
 OlucasCrystal 36800000
 OlucasCrystalIgnoreKnockdownResistance 110000000

@@ -69,7 +69,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 				for (int z = 0; z < craftNames.size(); z++)
 				{
 					file << "- " << craftNames[z] << " :" << endl;
-					Crafts(craftNames[z], itemList, price, amount, prices);
+					crafts(craftNames[z], itemList, price, amount, prices);
 					for (int j = 0; j < itemList.size(); j++)
 					{
 						file << itemList[j] << " " << price[j] << " " << amount[j] << endl;
@@ -89,7 +89,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 				for (int z = 0; z < craftNames.size(); z++)
 				{
 					file << "- " << craftNames[z] << " :" << endl;
-					AuxiliarCrafter(craftNames[z], itemList, price, amount, prices);
+					craftsAux(craftNames[z], itemList, price, amount, prices);
 					for (int j = 0; j < itemList.size(); j++)
 					{
 						file << itemList[j] << " " << price[j] << " " << amount[j] << endl;
@@ -142,7 +142,7 @@ int searchItemPrice(const string& itemName, vector<int>& prices)
 	return price;
 }
 
-void Crafts(const string& itemName, vector<string>& itemList, vector<int>& price, vector<int>& amount, vector<int>& prices)
+void crafts(const string& itemName, vector<string>& itemList, vector<int>& price, vector<int>& amount, vector<int>& prices)
 {
 	itemList.clear();
 	price.clear();
@@ -188,7 +188,7 @@ void Crafts(const string& itemName, vector<string>& itemList, vector<int>& price
 		price.push_back(searchItemPrice(itemList[i], prices));
 }
 
-void AuxiliarCrafter(const string& itemName, vector<string>& itemList, vector<int>& price, vector<int>& amount, vector<int>& prices)
+void craftsAux(const string& itemName, vector<string>& itemList, vector<int>& price, vector<int>& amount, vector<int>& prices)
 {
 	itemList.clear();
 	price.clear();
@@ -260,17 +260,27 @@ string numToString(int n)
 	ss << n;
 	string numStr = ss.str();
 	bool cicle = false;
-	for (int i = numStr.size() - 3; i > 0; i -= 3)
-		numStr.insert(i, ",");
+	if (n > 0)
+	{
+		for (int i = numStr.size() - 3; i > 0; i -= 3)
+			numStr.insert(i, ",");
+	}
+	if (n < 0)
+	{
+		for (int i = numStr.size() - 3; i > 1; i -= 3)
+			numStr.insert(i, ",");
+	}
 	return numStr;
 }
 
-void reorder(vector<string>& craftName, vector<int>& profit)
+void reorder(vector<string>& craftName, vector<int>& profit, vector<int>& rawPrice)
 {
 	vector<string> auxS;
 	auxS.resize(craftName.size());
 	vector<int> auxN;
 	auxN.resize(profit.size());
+	vector<int> rawPriceAux;
+	rawPriceAux.resize(rawPrice.size());
 	int max, index;
 	for (int j = 0; j < craftName.size(); j++)
 	{
@@ -296,15 +306,18 @@ void reorder(vector<string>& craftName, vector<int>& profit)
 		}
 		auxN[j] = max;
 		auxS[j] = craftName[index];
+		rawPriceAux[j] = rawPrice[index];
 		profit[index] = 0;
 	}
 	swap(auxN, profit);
 	swap(auxS, craftName);
+	swap(rawPriceAux, rawPrice);
 }
 
 void profit(vector<string>& craftName, vector<string>& itemList, vector<int>& price, vector<int>& amount, vector<string> nameList, vector<int> prices)
 {
-	int index = 0, total = 0, rawPrice = 0;
+	int index = 0, total = 0;
+	vector<int> rawPrice;
 	vector<int> profit;
 	getItemList(craftName);
 	for (int i = 0; i < craftName.size(); i++)
@@ -312,24 +325,23 @@ void profit(vector<string>& craftName, vector<string>& itemList, vector<int>& pr
 		index = stringInArray(craftName[i], nameList);
 		if (index != -1)
 		{
-			Crafts(craftName[i], itemList, price, amount, prices);
-			rawPrice = prices[index];
+			crafts(craftName[i], itemList, price, amount, prices);
+			rawPrice.push_back(prices[index]);
 			for (int j = 0; j < itemList.size(); j++)
 				total += price[j] * amount[j];
-			profit.push_back((rawPrice - total) * 0.845);
+			profit.push_back((rawPrice[i] - total) * 0.845);
 		}
 		else
 		{
 			cout << endl << "Error: Introduce " << craftName[i] << " in the item list with its price";
 		}
 		total = 0;
-		rawPrice = 0;
 	}
-	reorder(craftName, profit);
+	reorder(craftName, profit, rawPrice);
 	for (int i = 0; i < craftName.size(); i++)
 	{
 
-		cout << endl << " - " << craftName[i] << " --> " << numToString(profit[i]) << endl;
+		cout << endl << i + 1 <<  " - " << craftName[i] << " --> " << numToString(profit[i]) << " | " << numToString(rawPrice[i]) << endl;
 	}
 }
 

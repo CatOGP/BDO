@@ -11,16 +11,16 @@
       "RelativeMoniker": "D:0:0:{7B5F9CFD-92DF-4229-A60A-713151102369}|Crafteos BDO\\Crafteos BDO.vcxproj|solutionrelative:Crafteos BDO\\prices.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B5F9CFD-92DF-4229-A60A-713151102369}|Crafteos BDO\\Crafteos BDO.vcxproj|C:\\BDO\\BDO\\Crafteos BDO\\crafts.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7B5F9CFD-92DF-4229-A60A-713151102369}|Crafteos BDO\\Crafteos BDO.vcxproj|solutionrelative:Crafteos BDO\\crafts.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7B5F9CFD-92DF-4229-A60A-713151102369}|Crafteos BDO\\Crafteos BDO.vcxproj|C:\\BDO\\BDO\\Crafteos BDO\\crafts.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7B5F9CFD-92DF-4229-A60A-713151102369}|Crafteos BDO\\Crafteos BDO.vcxproj|solutionrelative:Crafteos BDO\\crafts.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7B5F9CFD-92DF-4229-A60A-713151102369}|Crafteos BDO\\Crafteos BDO.vcxproj|C:\\BDO\\BDO\\Crafteos BDO\\prices.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7B5F9CFD-92DF-4229-A60A-713151102369}|Crafteos BDO\\Crafteos BDO.vcxproj|solutionrelative:Crafteos BDO\\prices.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5F9CFD-92DF-4229-A60A-713151102369}|Crafteos BDO\\Crafteos BDO.vcxproj|C:\\BDO\\BDO\\Crafteos BDO\\crafts.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7B5F9CFD-92DF-4229-A60A-713151102369}|Crafteos BDO\\Crafteos BDO.vcxproj|solutionrelative:Crafteos BDO\\crafts.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,42 +34,45 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "prices.h",
               "DocumentMoniker": "C:\\BDO\\BDO\\Crafteos BDO\\prices.h",
               "RelativeDocumentMoniker": "Crafteos BDO\\prices.h",
               "ToolTip": "C:\\BDO\\BDO\\Crafteos BDO\\prices.h",
               "RelativeToolTip": "Crafteos BDO\\prices.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABBAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAEgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-15T15:14:33.328Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "crafts.h",
               "DocumentMoniker": "C:\\BDO\\BDO\\Crafteos BDO\\crafts.h",
               "RelativeDocumentMoniker": "Crafteos BDO\\crafts.h",
               "ToolTip": "C:\\BDO\\BDO\\Crafteos BDO\\crafts.h",
               "RelativeToolTip": "Crafteos BDO\\crafts.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABYAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEQAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-15T15:30:40.256Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "crafts.cpp",
               "DocumentMoniker": "C:\\BDO\\BDO\\Crafteos BDO\\crafts.cpp",
               "RelativeDocumentMoniker": "Crafteos BDO\\crafts.cpp",
               "ToolTip": "C:\\BDO\\BDO\\Crafteos BDO\\crafts.cpp",
               "RelativeToolTip": "Crafteos BDO\\crafts.cpp",
-              "ViewState": "AQIAAFUBAAAAAAAAAAAAALAAAAAGAAAA",
+              "ViewState": "AQIAAEcBAAAAAAAAAAAAAFcBAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-15T15:30:36.531Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -79,9 +82,10 @@
               "RelativeDocumentMoniker": "Crafteos BDO\\prices.cpp",
               "ToolTip": "C:\\BDO\\BDO\\Crafteos BDO\\prices.cpp",
               "RelativeToolTip": "Crafteos BDO\\prices.cpp",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAAYAAAAmAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-15T15:14:29.586Z"
+              "WhenOpened": "2024-05-15T15:14:29.586Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -91,7 +95,7 @@
               "RelativeDocumentMoniker": "Crafteos BDO\\main.cpp",
               "ToolTip": "C:\\BDO\\BDO\\Crafteos BDO\\main.cpp",
               "RelativeToolTip": "Crafteos BDO\\main.cpp",
-              "ViewState": "AQIAAOMAAAAAAAAAAAAkwO4AAABHAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAALEAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-15T02:07:54.102Z",
               "EditorCaption": ""
