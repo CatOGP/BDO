@@ -131,6 +131,7 @@ int main()
 		profit(craftName, itemList, price, amount, nameList, prices);
 		
 		// do/while loop until the name introduced exist in the file "itemCrafts.txt"
+
 		do
 		{
 			do
@@ -149,14 +150,12 @@ int main()
 
 				else
 					cout << endl << "Error: Item not found. If you want to leave introduce a -1: ";
-			} while (!found || itemName == -1);
+			} while (!found && itemName != -1);
 
 			// If the user selected an existing item, it shows the materials required for the recipe;
 
 			if (itemName != -1)
-			{
 				showMaterials(craftName[itemName - 1], itemList, amount);
-			}
 		} while (itemName != -1);
 		break;
 
@@ -179,4 +178,5 @@ int main()
 
 /*
 	Añadir una forma de quitar materiales en las recetas al momento de confirmarlas por si te has equivocado
+	Acabar de comentar prices.cpp
 */

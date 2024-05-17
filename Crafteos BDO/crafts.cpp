@@ -18,7 +18,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 	vector<int> priceAuxVector;
 	vector<int> amountAuxVector;
 
-	// Auxiliars strings to save the input introduced by the user 
+	// Auxiliar strings to save the input introduced by the user 
 
 	string craftName = "", answer = "", nameAux = "";
 
@@ -243,25 +243,42 @@ int searchItemPrice(const string& itemName, vector<int>& prices)
 }
 
 /*
-	
+	crafts method charges the vectors itemList, price and amount with the information 
+	needed for the recipe of the itemName received as a parameter
 */
 
 void crafts(const string& itemName, vector<string>& itemList, vector<int>& price, vector<int>& amount, vector<int>& prices)
 {
+
+	// The vectors are emptied
+
 	itemList.clear();
 	price.clear();
 	amount.clear();
-	string auxN = "", aux = "", auxI = "";
+
+	// Auxiliar strings for the recipe name, the material name and to read the : next to the recipe name in the txt
+
+	string nameAux = "", aux = "", itemAux = "";
+
+	// Auxiliar for loops
+
 	bool found = false;
-	int i = 0, auxP = 0, auxA = 0;
+
+	// Auxiliar integers for the amount vector and for loops
+
+	int i = 0,  amountAux = 0;
+
 	ifstream file;
 	file.open("crafts.txt");
 	if (file.is_open())
 	{
+
+		// Loop to search for the recipe name on "crafts.txt"
+
 		while (!found && !file.eof())
 		{
-			file >> auxN;
-			if (auxN == itemName)
+			file >> nameAux;
+			if (nameAux == itemName)
 			{
 				file >> aux;
 				if (aux == ":")
@@ -270,17 +287,20 @@ void crafts(const string& itemName, vector<string>& itemList, vector<int>& price
 				}
 			}
 		}
+
+		// When the recipe is found it adds the materials and amount to the vectors
+
 		if (found)
 		{
-			while (auxI != "-" && !file.eof())
+			while (itemAux != "-" && !file.eof())
 			{
-				file >> auxI >> auxA;
-				if (auxI != "-")
+				file >> itemAux >> amountAux;
+				if (itemAux != "-")
 				{
-					if (!count(itemList.begin(), itemList.end(), auxI))
+					if (!count(itemList.begin(), itemList.end(), itemAux))
 					{
-						itemList.push_back(auxI);
-						amount.push_back(auxA);
+						itemList.push_back(itemAux);
+						amount.push_back(amountAux);
 					}
 					i++;
 				}
@@ -288,26 +308,44 @@ void crafts(const string& itemName, vector<string>& itemList, vector<int>& price
 		}
 	}
 	file.close();
+
+	// For loop to search for the material prices and add them to the vector
+	
 	for (int i = 0; i < itemList.size(); i++)
 		price.push_back(searchItemPrice(itemList[i], prices));
 }
 
 void craftsAux(const string& itemName, vector<string>& itemList, vector<int>& price, vector<int>& amount, vector<int>& prices)
 {
+	// The vectors are emptied
+
 	itemList.clear();
 	price.clear();
 	amount.clear();
-	string auxN = "", aux = "", auxI = "";
+
+	// Auxiliar strings for the recipe name, the material name and to read the : next to the recipe name in the txt
+
+	string nameAux = "", aux = "", itemAux = "";
+
+	// Auxiliar for loops
+
 	bool found = false;
-	int i = 0, auxP = 0, auxA = 0;
+
+	// Auxiliar integers for the amount vector and for loops
+
+	int i = 0, amountAux = 0;
+
 	ifstream file;
 	file.open("craftsAux.txt");
 	if (file.is_open())
 	{
+
+		// Loop to search for the recipe name on "craftsAux.txt"
+
 		while (!found && !file.eof())
 		{
-			file >> auxN;
-			if (auxN == itemName)
+			file >> nameAux;
+			if (nameAux == itemName)
 			{
 				file >> aux;
 				if (aux == ":")
@@ -316,17 +354,23 @@ void craftsAux(const string& itemName, vector<string>& itemList, vector<int>& pr
 				}
 			}
 		}
+		
+		// When the recipe is found it adds the materials and amount to the vectors
+		
 		if (found)
 		{
-			while (auxI != "-" && !file.eof())
+
+			// The search ends when it reaches the next recipe "-" or when there is nothing else to read
+
+			while (itemAux != "-" && !file.eof())
 			{
-				file >> auxI >> auxA;
-				if (auxI != "-")
+				file >> itemAux >> amountAux;
+				if (itemAux != "-")
 				{
-					if (!count(itemList.begin(), itemList.end(), auxI))
+					if (!count(itemList.begin(), itemList.end(), itemAux))
 					{
-						itemList.push_back(auxI);
-						amount.push_back(auxA);
+						itemList.push_back(itemAux);
+						amount.push_back(amountAux);
 					}
 					i++;
 				}
@@ -334,9 +378,16 @@ void craftsAux(const string& itemName, vector<string>& itemList, vector<int>& pr
 		}
 	}
 	file.close();
+
+	// For loop to search for the material prices and add them to the vector
+
 	for (int i = 0; i < itemList.size(); i++)
 		price.push_back(searchItemPrice(itemList[i], prices));
 }
+
+/*
+	The method charges craftName vector with the names of every recipe in the file "itemCraft.txt"
+*/
 
 void getItemList(vector<string>& craftName)
 {
@@ -348,6 +399,9 @@ void getItemList(vector<string>& craftName)
 		while (!file.eof())
 		{
 			file >> auxN;
+
+			// Check if it is reapeted just in case
+
 			if (aux2 != auxN)
 			{
 				craftName.push_back(auxN);
@@ -358,17 +412,27 @@ void getItemList(vector<string>& craftName)
 	file.close();
 }
 
+/*
+	The function recieves a number and transforms it into a string with commas added every 3 digits
+*/
+
 string numToString(int n)
 {
 	stringstream ss;
 	ss << n;
 	string numStr = ss.str();
 	bool cicle = false;
+
+	// If the number if bigger than 0 we add it every 3 numbers until the first one
+
 	if (n > 0)
 	{
 		for (int i = numStr.size() - 3; i > 0; i -= 3)
 			numStr.insert(i, ",");
 	}
+
+	// If the number if smaller than 0 we add it every 3 numbers until the first one + 1, because there is a minus in the first position
+
 	if (n < 0)
 	{
 		for (int i = numStr.size() - 3; i > 1; i -= 3)
@@ -377,15 +441,29 @@ string numToString(int n)
 	return numStr;
 }
 
+/*
+	The method reorganises the profit vector from bigger to smaller
+*/
+
 void reorder(vector<string>& craftName, vector<int>& profit, vector<int>& rawPrice)
 {
-	vector<string> auxS;
-	auxS.resize(craftName.size());
-	vector<int> auxN;
-	auxN.resize(profit.size());
+
+	// Auxiliar vectors with the size of its corresponding vector to organise them 
+	// from bigger to smaller and then doing a swap
+
+	vector<string> stringAux;
+	stringAux.resize(craftName.size());
+	vector<int> nameAux;
+	nameAux.resize(profit.size());
 	vector<int> rawPriceAux;
 	rawPriceAux.resize(rawPrice.size());
+
+	// Auxiliar integers to save the max profit value and its index
+
 	int max, index;
+
+	// For loops to search for the max profit
+
 	for (int j = 0; j < craftName.size(); j++)
 	{
 		max = 0, index = 0;
@@ -397,6 +475,9 @@ void reorder(vector<string>& craftName, vector<int>& profit, vector<int>& rawPri
 				index = i;
 			}
 		}
+
+		// Searching for negatives profits
+
 		if (max == 0)
 		{
 			for (int i = 0; i < profit.size(); i++)
@@ -408,62 +489,124 @@ void reorder(vector<string>& craftName, vector<int>& profit, vector<int>& rawPri
 				}
 			}
 		}
-		auxN[j] = max;
-		auxS[j] = craftName[index];
+
+		// After doing the search each value is added to its corresponding auxiliar vector
+
+		nameAux[j] = max;
+		stringAux[j] = craftName[index];
 		rawPriceAux[j] = rawPrice[index];
+
+		// The position that had the max value is changed to a 0 to avoid search errors
+
 		profit[index] = 0;
 	}
-	swap(auxN, profit);
-	swap(auxS, craftName);
+
+	// Swapping the auxiliar vectors to the real ones
+
+	swap(nameAux, profit);
+	swap(stringAux, craftName);
 	swap(rawPriceAux, rawPrice);
 }
 
+/*
+	Method that prints on the screen the profit of each recipe next to the total value 
+	and its organised from most profitable to the least
+*/
+
 void profit(vector<string>& craftName, vector<string>& itemList, vector<int>& price, vector<int>& amount, vector<string> nameList, vector<int> prices)
 {
+
+	// Auxiliar integers 
+
 	int index = 0, total = 0;
+
+	// Auxiliar vectors used to save the total value and the profit of each recipe
+
 	vector<int> rawPrice;
 	vector<int> profit;
+
+	// We charge the craftName vector with all possible recipes
+
 	getItemList(craftName);
+
+	// For loop to get every total value and profit of each recipe in craftName vector
+
 	for (int i = 0; i < craftName.size(); i++)
 	{
+
+		// Index has the position of the value of the recipe name saved
+
 		index = stringInArray(craftName[i], nameList);
 		if (index != -1)
 		{
+
+			// crafts charges the vectors with the materials, amounts and prices
+
 			crafts(craftName[i], itemList, price, amount, prices);
+
+			// Value of the recipe is added to its vector
+
 			rawPrice.push_back(prices[index]);
 			for (int j = 0; j < itemList.size(); j++)
 				total += price[j] * amount[j];
+
+			// Profit of the recipe is added to its vector
+
 			profit.push_back((rawPrice[i] - total) * 0.845);
 		}
+
+		// If the recipe value is not found on "prices.txt" an error message is shown 
+
 		else
 		{
 			cout << endl << "Error: Introduce " << craftName[i] << " in the item list with its price";
 		}
 		total = 0;
 	}
-	reorder(craftName, profit, rawPrice);
-	for (int i = 0; i < craftName.size(); i++)
-	{
 
+	// Reorganising the profit vector from bigger to smaller
+
+	reorder(craftName, profit, rawPrice);
+
+	// For loop to show on the screen the profits and total values
+
+	for (int i = 0; i < craftName.size(); i++)
 		cout << endl << i + 1 <<  " - " << craftName[i] << " --> " << numToString(profit[i]) << " | " << numToString(rawPrice[i]) << endl;
-	}
 }
 
+/*
+	The method shows on the screen the materials and amounts needed for the craft received as a parameter
+*/
 void showMaterials(const string& itemName, vector<string> itemList, vector<int> amount)
 {
+		
+	// The vectors are emptied
 	itemList.clear();
 	amount.clear();
-	string auxN = "", aux = "", auxI = "";
+
+	// Auxiliar strings used to add information to vectors
+
+	string nameAux = "", aux = "", itemAux = "";
+
+	// Auxiliar bool for loops
+
 	bool found = false;
-	int i = 0, auxP = 0, auxA = 0;
+
+	// Auxiliar integers for loops and to add information to vectors
+
+	int i = 0, amountAux = 0;
+
 	ifstream file;
 	file.open("crafts.txt");
 	if (file.is_open())
 	{
+
+		// The item is searched in "crafts.txt"
+
 		while (!found && !file.eof())
 		{
-			file >> auxN;
-			if (auxN == itemName)
+			file >> nameAux;
+			if (nameAux == itemName)
 			{
 				file >> aux;
 				if (aux == ":")
@@ -472,22 +615,28 @@ void showMaterials(const string& itemName, vector<string> itemList, vector<int> 
 				}
 			}
 		}
+
+		// If it is found itemList and amount vectors are charged with the information needed
+
 		if (found)
 		{
-			while (auxI != "-" && !file.eof())
+			while (itemAux != "-" && !file.eof())
 			{
-				file >> auxI >> auxA;
-				if (auxI != "-")
+				file >> itemAux >> amountAux;
+				if (itemAux != "-")
 				{
-					if (!count(itemList.begin(), itemList.end(), auxI))
+					if (!count(itemList.begin(), itemList.end(), itemAux))
 					{
-						itemList.push_back(auxI);
-						amount.push_back(auxA);
+						itemList.push_back(itemAux);
+						amount.push_back(amountAux);
 					}
 					i++;
 				}
 			}
 		}
+
+		// For loop that shows on the screen the materials and amounts
+
 		cout << endl << "Materials required to craft " << itemName << ":" << endl;
 		for (int i = 0; i < itemList.size(); i++)
 		{

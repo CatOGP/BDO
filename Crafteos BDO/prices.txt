@@ -1,6 +1,6 @@
 AhkradCrystal 60000000
 AncientMagicCrystalOfCrimsonFlamePower 382000000
-BlackStone 150000
+BlackStone 140000
 ClearBlackstarCrystal 0
 CorruptedMagicCrystal 78000000
 CrystalOfBitterness 0
