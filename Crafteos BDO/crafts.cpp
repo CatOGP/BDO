@@ -577,6 +577,7 @@ void profit(vector<string>& craftName, vector<string>& itemList, vector<int>& pr
 /*
 	The method shows on the screen the materials and amounts needed for the craft received as a parameter
 */
+
 void showMaterials(const string& itemName, vector<string> itemList, vector<int> amount)
 {
 		

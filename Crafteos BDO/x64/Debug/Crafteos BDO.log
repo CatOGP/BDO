@@ -1,2 +1,9 @@
-﻿  main.cpp
-  Crafteos BDO.vcxproj -> C:\BDO\BDO\x64\Debug\Crafteos BDO.exe
+﻿  crafts.cpp
+C:\Users\adrid\source\repos\Crafteos BDO\BDO\Crafteos BDO\crafts.cpp(430,14): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\adrid\source\repos\Crafteos BDO\BDO\Crafteos BDO\crafts.cpp(438,14): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\adrid\source\repos\Crafteos BDO\BDO\Crafteos BDO\crafts.cpp(555,43): warning C4244: 'argumento': conversión de 'double' a '_Ty'; posible pérdida de datos
+C:\Users\adrid\source\repos\Crafteos BDO\BDO\Crafteos BDO\crafts.cpp(555,43): warning C4244:         with
+C:\Users\adrid\source\repos\Crafteos BDO\BDO\Crafteos BDO\crafts.cpp(555,43): warning C4244:         [
+C:\Users\adrid\source\repos\Crafteos BDO\BDO\Crafteos BDO\crafts.cpp(555,43): warning C4244:             _Ty=int
+C:\Users\adrid\source\repos\Crafteos BDO\BDO\Crafteos BDO\crafts.cpp(555,43): warning C4244:         ]
+  Crafteos BDO.vcxproj -> C:\Users\adrid\source\repos\Crafteos BDO\BDO\x64\Debug\Crafteos BDO.exe

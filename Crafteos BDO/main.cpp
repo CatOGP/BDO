@@ -178,5 +178,4 @@ int main()
 
 /*
 	Añadir una forma de quitar materiales en las recetas al momento de confirmarlas por si te has equivocado
-	Acabar de comentar prices.cpp
 */
