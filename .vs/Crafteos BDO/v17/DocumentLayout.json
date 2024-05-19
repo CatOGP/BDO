@@ -43,8 +43,7 @@
               "ViewState": "AQIAAAgAAAAAAAAAAAAYwE8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-15T15:14:33.328Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -57,8 +56,7 @@
               "ViewState": "AQIAACkAAAAAAAAAAAAAAFYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-15T15:30:40.256Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -71,8 +69,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAH4CAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-15T15:30:36.531Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -84,8 +81,7 @@
               "RelativeToolTip": "Crafteos BDO\\prices.cpp",
               "ViewState": "AQIAAKUAAAAAAAAAAAAAAKoAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-15T15:14:29.586Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T15:14:29.586Z"
             },
             {
               "$type": "Document",
@@ -95,7 +91,7 @@
               "RelativeDocumentMoniker": "Crafteos BDO\\main.cpp",
               "ToolTip": "C:\\BDO\\BDO\\Crafteos BDO\\main.cpp",
               "RelativeToolTip": "Crafteos BDO\\main.cpp",
-              "ViewState": "AQIAAKoAAAAAAAAAAAAAALQAAAAeAAAA",
+              "ViewState": "AQIAAKcAAAAAAAAAAAAAALIAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-15T02:07:54.102Z",
               "EditorCaption": ""
