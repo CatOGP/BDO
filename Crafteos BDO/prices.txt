@@ -2,6 +2,7 @@ AhkradCrystal 63000000
 AncientMagicCrystalOfCrimsonFlamePower 419000000
 BlackStone 147000
 ClearBlackstarCrystal 0
+ConcentratedMagicalBlackStone 2750000
 CorruptedMagicCrystal 90000000
 CrystalOfBitterness 0
 CrystalOfBrutalDecimation 790000000
@@ -37,6 +38,7 @@ OlucasCrystalIgnoreKnockdownResistance 116000000
 OlucasCrystalIgnoreStunResistance 75000000
 OrkindradBelt 8650000
 SealedBlackMagicCrystal 1160000
+SharpBlackCrystalShard 2020000
 TaebaekBelt 296000000
 TungradBelt 38700000
 UltimateCombinedMagicCrystalGervish 296000000

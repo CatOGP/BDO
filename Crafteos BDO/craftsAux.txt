@@ -71,3 +71,6 @@ GoldenTearsOfTheDesert 1
 OrkindradBelt 1
 MelodyOfTheStars 10
 SealedBlackMagicCrystal 50
+- ConcentratedMagicalBlackStone :
+SharpBlackCrystalShard 2020000 1
+BlackStone 147000 2
