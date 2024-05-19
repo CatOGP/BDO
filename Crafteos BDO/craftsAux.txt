@@ -32,7 +32,6 @@ HANCombinedMagicCrystalMacalod 1
 DarkRedFangCrystalValor 1
 SealedBlackMagicCrystal 50
 ImperfectLightstone 17
-ImperfectLightstone 17
 - UltimateCombinedMagicCrystalHoom :
 CrystalOfHarmony 1
 HANCombinedMagicCrystalHoom 1
@@ -65,9 +64,10 @@ HeavenlyEssenceIgnoreKnockdownResistance 1
 OlucasCrystal 1
 SealedBlackMagicCrystal 10
 DragonScaleFossil 100
-DragonScaleFossil 100
 - VahaDawn :
 GoldenTearsOfTheDesert 1
 OrkindradBelt 1
 MelodyOfTheStars 10
 SealedBlackMagicCrystal 50
+- BlackStone :
+BlackStone 2

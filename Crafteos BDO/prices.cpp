@@ -180,17 +180,39 @@ void setAllPrices(vector<string>& nameList, vector<int>& prices)
 	}
 }
 
+/*
+	Method to add new items to the vectors nameList and prices
+*/
+
 void addItems(vector<string>& nameList, vector<int>& prices)
 {
+
+	// Auxiliar bool for loops
+
 	bool stop = false;
+
+	// Auxiliar string to save the name introduced by the user
+
 	string name = "";
-	int index = 0, price;
+
+	// Auxiliar integer to save the price introduced by the user
+
+	int price;
+
+	// While loop to keep adding items until the user decides to stop by introducing a dash
+
 	while (!stop)
 	{
 		cout << endl << "Introduce an item name / a dash to stop: ";
 		cin >> name;
+
+		// Stops the loop
+
 		if (name == "-")
 			stop = true;
+
+		// Adds the item and price to the list
+
 		else
 		{
 			nameList.push_back(name);
@@ -201,9 +223,20 @@ void addItems(vector<string>& nameList, vector<int>& prices)
 	}
 }
 
+/*
+	Method to write on the file "prices.txt" the vectors nameList and prices that 
+	have every item name with its price
+*/
+
 void addPriceFile(vector<string>& nameList, vector<int>& prices)
 {
+
+	// Reorganise the alphabetically nameList and prices
+
 	ABC(nameList, prices);
+
+	// Writes on the file the name next to its price
+
 	ofstream file;
 	file.open("prices.txt");
 	if (file.is_open())
@@ -214,9 +247,12 @@ void addPriceFile(vector<string>& nameList, vector<int>& prices)
 	file.close();
 }
 
+/*
+	Method to initialise the vectors nameList and prices with the names and prices of the file "prices.txt"
+*/
+
 void getPrices(vector<string>& nameList, vector<int>& prices)
 {
-	int aux;
 	ifstream file;
 	file.open("prices.txt");
 	if (file.is_open())

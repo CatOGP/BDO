@@ -11,3 +11,4 @@ GloriousCrystalOfGallantryOlucas
 OlucasCrystalIgnoreStunResistance
 OlucasCrystalIgnoreKnockdownResistance
 VahaDawn
+BlackStone

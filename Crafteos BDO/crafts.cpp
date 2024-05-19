@@ -15,7 +15,6 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 	// Auxiliar vectors needed to copy and reorganise the ones received as parameters
 
 	vector<string> nameAuxVector;
-	vector<int> priceAuxVector;
 	vector<int> amountAuxVector;
 
 	// Auxiliar strings to save the input introduced by the user 
@@ -24,7 +23,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 
 	// Auxiliar ints to save the input introduced by the user
 
-	int index = 0, i = 0, priceAux = 0, amountAux = 0;	
+	int index = 0, i = 0, amountAux = 0;	
 
 	// While loop used to add the recipe, it only ends when a dash is introduced
 		
@@ -43,7 +42,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 		else
 		{
 
-			// Do/While loop used to introduce every material and amount of the recipe. Same as before, it ends with a dash.
+			// Do / While loop used to introduce every material and amount of the recipe. Same as before, it ends with a dash.
 
 			do
 			{
@@ -67,8 +66,6 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 					if (index != -1)
 					{
 						nameAuxVector.push_back(nameAux);
-						priceAux = prices[index];
-						priceAuxVector.push_back(priceAux);
 
 						// Asking for the material amount
 
@@ -97,7 +94,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 			cout << " - " << craftName << ":" << endl;
 			for (int j = 0; j < i; j++)
 			{
-				cout << "     " << nameAuxVector[j] << " " << priceAuxVector[j] << " " << amountAuxVector[j] << "x" << endl;
+				cout << "     " << nameAuxVector[j] << " " << amountAuxVector[j] << "x" << endl;
 			}
 			cout << endl << "Introduce Y to confirm: ";
 			cin >> answer;
@@ -133,7 +130,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 					crafts(craftNames[z], itemList, price, amount, prices);
 					for (int j = 0; j < itemList.size(); j++)
 					{
-						file << itemList[j] << " " << price[j] << " " << amount[j] << endl;
+						file << itemList[j] << " " << amount[j] << endl;
 					}
 				}
 
@@ -142,7 +139,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 				file << "- " << craftName << " :" << endl;
 				for (int j = 0; j < i; j++)
 				{ 
-					file << nameAuxVector[j] << " " << priceAuxVector[j] << " " << amountAuxVector[j] << endl;
+					file << nameAuxVector[j] << " " << amountAuxVector[j] << endl;
 				}
 				cout << endl;
 			}
@@ -163,7 +160,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 					craftsAux(craftNames[z], itemList, price, amount, prices);
 					for (int j = 0; j < itemList.size(); j++)
 					{
-						file << itemList[j] << " " << price[j] << " " << amount[j] << endl;
+						file << itemList[j] << " " << amount[j] << endl;
 					}
 				}
 				
@@ -172,7 +169,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 				file << "- " << craftName << " :" << endl;
 				for (int j = 0; j < i; j++)
 				{
-					file << nameAuxVector[j] << " " << priceAuxVector[j] << " " << amountAuxVector[j] << endl;
+					file << nameAuxVector[j] << " " << amountAuxVector[j] << endl;
 				}
 				cout << endl;
 			}
@@ -552,7 +549,7 @@ void profit(vector<string>& craftName, vector<string>& itemList, vector<int>& pr
 
 			// Profit of the recipe is added to its vector
 
-			profit.push_back((rawPrice[i] - total) * 0.845);
+			profit.push_back((rawPrice[i] * 0.845) - total);
 		}
 
 		// If the recipe value is not found on "prices.txt" an error message is shown 
@@ -577,6 +574,7 @@ void profit(vector<string>& craftName, vector<string>& itemList, vector<int>& pr
 /*
 	The method shows on the screen the materials and amounts needed for the craft received as a parameter
 */
+
 void showMaterials(const string& itemName, vector<string> itemList, vector<int> amount)
 {
 		

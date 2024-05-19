@@ -69,3 +69,5 @@ GoldenTearsOfTheDesert 1
 OrkindradBelt 1
 MelodyOfTheStars 10
 SealedBlackMagicCrystal 50
+- BlackStone :
+BlackStone 2
