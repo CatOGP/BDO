@@ -1,14 +1,10 @@
-CrystalOfMysteriousDarkness
-CrystalOfFrozenBitterness
-CrystalOfBrutalDecimation
-CorruptedMagicCrystal
-UltimateCombinedMagicCrystalGervish
-UltimateCombinedMagicCrystalMacalod
-UltimateCombinedMagicCrystalHoom
-TaebaekBelt
-GloriousCrystalOfGallantryAhkrad
-GloriousCrystalOfGallantryOlucas
-OlucasCrystalIgnoreStunResistance
-OlucasCrystalIgnoreKnockdownResistance
-VahaDawn
-ConcentratedMagicalBlackStone
+ConcentratedMagicalBlackStone 1
+VerdureDraught 1
+SavageDraught 1
+BeastsDraught 1
+FrenzyDraught 1
+FrenzyDraughtOfCorruption 1
+ConcentratedMagicalBlackGem 1
+BlackGem 1
+CelerityDraught 1
+UnbridledCelerityDraught 1

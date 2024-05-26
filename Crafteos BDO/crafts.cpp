@@ -15,8 +15,8 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 	// Auxiliar vectors needed to copy and reorganise the ones received as parameters
 
 	vector<string> nameAuxVector;
-	vector<int> priceAuxVector;
 	vector<int> amountAuxVector;
+	vector<int> amountCraftedAuxVector;
 
 	// Auxiliar strings to save the input introduced by the user 
 
@@ -24,7 +24,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 
 	// Auxiliar ints to save the input introduced by the user
 
-	int index = 0, i = 0, priceAux = 0, amountAux = 0;	
+	int index = 0, i = 0, amountAux = 0, amountCrafted = 0;	
 
 	// While loop used to add the recipe, it only ends when a dash is introduced
 		
@@ -35,6 +35,8 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 
 		cout << endl << "Introduce the item / a dash to stop: ";
 		cin >> craftName;
+		cout << endl << "How many are crafted each time?" ;
+		cin >> amountCrafted;
 
 		// Looking if it has to stop as a dash was introduced 
 
@@ -43,7 +45,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 		else
 		{
 
-			// Do/While loop used to introduce every material and amount of the recipe. Same as before, it ends with a dash.
+			// Do / While loop used to introduce every material and amount of the recipe. Same as before, it ends with a dash.
 
 			do
 			{
@@ -67,8 +69,6 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 					if (index != -1)
 					{
 						nameAuxVector.push_back(nameAux);
-						priceAux = prices[index];
-						priceAuxVector.push_back(priceAux);
 
 						// Asking for the material amount
 
@@ -97,7 +97,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 			cout << " - " << craftName << ":" << endl;
 			for (int j = 0; j < i; j++)
 			{
-				cout << "     " << nameAuxVector[j] << " " << priceAuxVector[j] << " " << amountAuxVector[j] << "x" << endl;
+				cout << "     " << nameAuxVector[j] << " " << amountAuxVector[j] << "x" << endl;
 			}
 			cout << endl << "Introduce Y to confirm: ";
 			cin >> answer;
@@ -115,7 +115,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 			
 			// The vector craftNames gets a list of every recipe name "itemCraft.txt"
 
-			getItemList(craftNames);
+			getItemList(craftNames, amountCraftedAuxVector);
 
 			// Writes every recipe on "craftsAux.txt"
 			// It first writes the previous recipes, then the new one 
@@ -133,7 +133,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 					crafts(craftNames[z], itemList, price, amount, prices);
 					for (int j = 0; j < itemList.size(); j++)
 					{
-						file << itemList[j] << " " << price[j] << " " << amount[j] << endl;
+						file << itemList[j] << " " << amount[j] << endl;
 					}
 				}
 
@@ -142,7 +142,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 				file << "- " << craftName << " :" << endl;
 				for (int j = 0; j < i; j++)
 				{ 
-					file << nameAuxVector[j] << " " << priceAuxVector[j] << " " << amountAuxVector[j] << endl;
+					file << nameAuxVector[j] << " " << amountAuxVector[j] << endl;
 				}
 				cout << endl;
 			}
@@ -163,7 +163,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 					craftsAux(craftNames[z], itemList, price, amount, prices);
 					for (int j = 0; j < itemList.size(); j++)
 					{
-						file << itemList[j] << " " << price[j] << " " << amount[j] << endl;
+						file << itemList[j] << " " << amount[j] << endl;
 					}
 				}
 				
@@ -172,7 +172,7 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 				file << "- " << craftName << " :" << endl;
 				for (int j = 0; j < i; j++)
 				{
-					file << nameAuxVector[j] << " " << priceAuxVector[j] << " " << amountAuxVector[j] << endl;
+					file << nameAuxVector[j] << " " << amountAuxVector[j] << endl;
 				}
 				cout << endl;
 			}
@@ -184,8 +184,8 @@ void addCraft(vector<string>& nameList, vector<int>& prices, vector<string>& cra
 			if (file.is_open())
 			{
 				for(int i = 0; i < craftNames.size(); i++)
-					file << craftNames[i] << endl;
-				file << craftName << endl;
+					file << craftNames[i] << " " << amountCraftedAuxVector[i] << endl;
+				file << craftName << " " << amountCrafted << endl;
 			}
 			file.close();
 			stop = true;
@@ -389,23 +389,25 @@ void craftsAux(const string& itemName, vector<string>& itemList, vector<int>& pr
 	The method charges craftName vector with the names of every recipe in the file "itemCraft.txt"
 */
 
-void getItemList(vector<string>& craftName)
+void getItemList(vector<string>& craftName, vector<int>& amountCraft)
 {
 	ifstream file;
-	string auxN, aux2;
+	string nameAux, nameAux2;
+	int amountAux;
 	file.open("itemCrafts.txt");
 	if (file.is_open())
 	{
 		while (!file.eof())
 		{
-			file >> auxN;
+			file >> nameAux >> amountAux;
 
 			// Check if it is reapeted just in case
 
-			if (aux2 != auxN)
+			if (nameAux2 != nameAux)
 			{
-				craftName.push_back(auxN);
-				aux2 = auxN;
+				craftName.push_back(nameAux);
+				amountCraft.push_back(amountAux);
+				nameAux2 = nameAux;
 			}
 		}
 	}
@@ -523,11 +525,12 @@ void profit(vector<string>& craftName, vector<string>& itemList, vector<int>& pr
 	// Auxiliar vectors used to save the total value and the profit of each recipe
 
 	vector<int> rawPrice;
+	vector<int> amountCraft;
 	vector<int> profit;
 
 	// We charge the craftName vector with all possible recipes
 
-	getItemList(craftName);
+	getItemList(craftName, amountCraft);
 
 	// For loop to get every total value and profit of each recipe in craftName vector
 
@@ -552,7 +555,7 @@ void profit(vector<string>& craftName, vector<string>& itemList, vector<int>& pr
 
 			// Profit of the recipe is added to its vector
 
-			profit.push_back((rawPrice[i] - total) * 0.845);
+			profit.push_back((rawPrice[i] * 0.845) * amountCraft[i] - total);
 		}
 
 		// If the recipe value is not found on "prices.txt" an error message is shown 

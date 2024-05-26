@@ -178,5 +178,5 @@ int main()
 
 /*
 	Añadir una forma de quitar materiales en las recetas al momento de confirmarlas por si te has equivocado
-	No funciona profits ni crafts
+	Al ordenar los profits los negativos se ordenan al reves
 */

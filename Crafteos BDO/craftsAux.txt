@@ -1,76 +1,47 @@
-- CrystalOfMysteriousDarkness :
-CrystalOfDarkness 1
-MagicCrystalOfInfinityBackAttack 1
-SealedBlackMagicCrystal 50
-ImperfectLightstone 17
-BlackStone 100
-- CrystalOfFrozenBitterness :
-CrystalOfBitterness 1
-MagicCrystalOfInfinityArmor 1
-SealedBlackMagicCrystal 50
-ImperfectLightstone 17
-BlackStone 100
-- CrystalOfBrutalDecimation :
-CrystalOfDecimation 1
-AncientMagicCrystalOfCrimsonFlamePower 1
-SealedBlackMagicCrystal 50
-ImperfectLightstone 17
-BlackStone 100
-- CorruptedMagicCrystal :
-ClearBlackstarCrystal 1
-MagicCrystalOfInfinityCriticalHit 1
-ForestFury 3
-- UltimateCombinedMagicCrystalGervish :
-CrystalOfHarmony 1
-HANCombinedMagicCrystalGervish 1
-MagicCrystalOfInfinityExperience 1
-MagicCrystalOfInfinitySkill 1
-ImperfectLightstone 17
-- UltimateCombinedMagicCrystalMacalod :
-CrystalOfHarmony 1
-HANCombinedMagicCrystalMacalod 1
-DarkRedFangCrystalValor 1
-SealedBlackMagicCrystal 50
-ImperfectLightstone 17
-ImperfectLightstone 17
-- UltimateCombinedMagicCrystalHoom :
-CrystalOfHarmony 1
-HANCombinedMagicCrystalHoom 1
-DarkRedFangCrystalArmor 1
-SealedBlackMagicCrystal 50
-ImperfectLightstone 17
-- TaebaekBelt :
-EssenceOfTaebaek 1
-TungradBelt 1
-SealedBlackMagicCrystal 50
-BlackStone 100
-ImperfectLightstone 17
-- GloriousCrystalOfGallantryAhkrad :
-AhkradCrystal 1
-EssenceOfGallantry 10
-SealedBlackMagicCrystal 10
-BlackStone 100
-- GloriousCrystalOfGallantryOlucas :
-OlucasCrystal 1
-EssenceOfGallantry 10
-SealedBlackMagicCrystal 10
-BlackStone 100
-- OlucasCrystalIgnoreStunResistance :
-HeavenlyEssenceIgnoreStunResistance 1
-OlucasCrystal 1
-SealedBlackMagicCrystal 10
-DragonScaleFossil 100
-- OlucasCrystalIgnoreKnockdownResistance :
-HeavenlyEssenceIgnoreKnockdownResistance 1
-OlucasCrystal 1
-SealedBlackMagicCrystal 10
-DragonScaleFossil 100
-DragonScaleFossil 100
-- VahaDawn :
-GoldenTearsOfTheDesert 1
-OrkindradBelt 1
-MelodyOfTheStars 10
-SealedBlackMagicCrystal 50
 - ConcentratedMagicalBlackStone :
-SharpBlackCrystalShard 2020000 1
-BlackStone 147000 2
+SharpBlackCrystalShard 1
+BlackStone 2
+- VerdureDraught :
+WorkersElixir 3
+ElixirOfTime 3
+ElixirOfSwiftness 3
+TearsOfTheFallingMoon 1
+- SavageDraught :
+WeenieElixir 3
+LooneyElixir 3
+HelixElixir 3
+TearsOfTheFallingMoon 1
+- BeastsDraught :
+GrimReapersElixir 3
+EXPElixir 3
+ElixirOfWill 3
+TearsOfTheFallingMoon 1
+- FrenzyDraught :
+AbyssalEssence 1
+ElixirOfDemihumanHunt 3
+ElixirOfFrenzy 3
+TearsOfTheFallingMoon 1
+- FrenzyDraughtOfCorruption :
+AbyssalEssence 1
+ElixirOfDemihumanHunt 3
+ElixirOfFrenzy 3
+TearsOfTheFallingMoon 1
+CorruptedBreath 1
+- ConcentratedMagicalBlackGem :
+BlackGemFragment 5
+BlackStone 10
+SharpBlackCrystalShard 2
+- BlackGem :
+BlackGemFragment 1
+BlackStone 2
+- CelerityDraught :
+ElixirOfTraining 36
+ElixirOfTime 36
+ElixirOfWings 36
+TearsOfTheFallingMoon 10
+- UnbridledCelerityDraught :
+ElixirOfTraining 72
+ElixirOfWings 72
+ElixirOfTime 72
+TearsOfTheFallingMoon 20
+RumblingEarthShard 1

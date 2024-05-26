@@ -38,7 +38,7 @@ int searchItemPrice(const string& itemName, vector<int>& prices);
 		craftName is a vector that has every craftable item in it
 */
 
-void getItemList(vector<string>& craftName);
+void getItemList(vector<string>& craftName, vector<int>& amountCraft);
 
 /*
 	Both crafts and craftsAux return itemList, price and amount with the names, prices and amounts needed for the recipe of the itemName
